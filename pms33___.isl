@@ -271,6 +271,7 @@ sub SENDSTAY
 endsub
 
 sub AUTODISCOUNT
+
 if (@MLVL = 3 OR @MLVL = 5) 
    var i : n6
     var mc : n6
@@ -278,7 +279,7 @@ if (@MLVL = 3 OR @MLVL = 5)
       for i = 1 to @numdtlt
 		if @Dtl_Type[i] = "M"
       if @dtl_qty[i] <> 0
-        if (@RVC = 2 AND @Dtl_Famgrp[i] = 118 AND @DTL_IS_VOID[i] = 0)
+        if (@RVC = 2 AND @DTL_IS_VOID[i] = 0 and @Dtl_Famgrp[1] = 118)
           if @dtl_ttl[i] = getmaxdiscount(i,875)
             da = da + (@dtl_ttl[i]/2)
           endif
@@ -291,6 +292,7 @@ if (@MLVL = 3 OR @MLVL = 5)
    endif   
    endif
 endsub
+
 
 /////////////////////////////////////////////////
 sub GetServerInfo
